@@ -39,11 +39,11 @@ function filesize ( arg, descriptor, options ) {
 			result = "0";
 		}
 		else {
-			result = "0" + spacer + "B";
+			result = "0" + spacer + "Б";
 		}
 	}
 	else {
-		sizes = options[base][bits ? "bits" : "bytes"];
+		sizes = options[base][bits ? "биты" : "байты"];
 
 		while ( i-- ) {
 			size   = sizes[i][1];
@@ -59,15 +59,12 @@ function filesize ( arg, descriptor, options ) {
 				result = ( num / size ).toFixed( round );
 
 				if ( !skip && unix ) {
-					if ( bits && bit.test( suffix ) ) {
-						suffix = suffix.toLowerCase();
-					}
 
 					suffix = suffix.charAt( 0 );
 					z      = right.exec( result );
 
-					if ( !bits && suffix === "k" ) {
-						suffix = "K";
+					if ( !bits && suffix === "К" ) {
+						suffix = "К";
 					}
 
 					if ( z !== null && z[1] !== undefined && zero.test( z[1] ) ) {
